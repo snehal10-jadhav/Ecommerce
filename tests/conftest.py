@@ -14,7 +14,7 @@ def context(playwright, request):
         browser = playwright.chromium.launch(headless=False)
     else:
         browser = playwright.firefox.launch(headless=False)
-    context = browser.new_context()
-
+    context = browser.new_context(storage_state="playwright/.auth/state.json")
     yield context
+    context.clear_cookies(path="../playwright/.auth/state.json")
     browser.close()

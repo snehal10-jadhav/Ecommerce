@@ -1,6 +1,5 @@
 from playwright.sync_api import expect
 import time
-
 from PageObj.login import Login
 from PageObj.register import Register
 
